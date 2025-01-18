@@ -103,7 +103,7 @@ PASSWORD_RESET_TOKEN_EXPIRATION="2m"  # Minutes
 COOKIE_EXPIRATION_DAYS="30"    # Days
 
 # Secret key for jwt security
-SECRET_KEY="your-secret-key"
+SECRET_KEY="your-secret-keyy"
 
 # Environment (production/development)
 PRODUCTION="false" # Initially set to false for development
