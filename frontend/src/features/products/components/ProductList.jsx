@@ -1,6 +1,7 @@
-import {FormControl, Grid, IconButton, InputLabel, MenuItem, Select, Stack, Typography, useMediaQuery, useTheme } from '@mui/material'
+import {FormControl, Grid, IconButton, InputLabel, MenuItem, Select, Stack, Typography, useMediaQuery, useTheme, Badge } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom';
 import { fetchProductsAsync, resetProductFetchStatus, selectProductFetchStatus, selectProductIsFilterOpen, selectProductTotalResults, selectProducts, toggleFilters } from '../ProductSlice'
 import { ProductCard } from './ProductCard'
 import Accordion from '@mui/material/Accordion';
@@ -22,6 +23,8 @@ import { resetCartItemAddStatus, selectCartItemAddStatus } from '../../cart/Cart
 import { motion } from 'framer-motion'
 import { ProductBanner } from './ProductBanner'
 import ClearIcon from '@mui/icons-material/Clear';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import TuneIcon from '@mui/icons-material/Tune';
 import Lottie from 'lottie-react'
 
 
@@ -33,7 +36,7 @@ const sortOptions=[
 
 const bannerImages=[banner1,banner3,banner2,banner4]
 
-export const ProductList = () => {
+export const ProductList = ({isProductList=true}) => {
     const [filters,setFilters]=useState({})
     const [page,setPage]=useState(1)
     const [sort,setSort]=useState(null)
@@ -189,7 +192,7 @@ export const ProductList = () => {
         {/* filters section */}
         <Stack mb={'5rem'}  sx={{scrollBehavior:"smooth",overflowY:"scroll"}}>
 
-            <Typography variant='h4'>New Arrivals</Typography>
+            <Typography variant='h4'>Filters</Typography>
 
             <IconButton onClick={handleFilterClose} style={{position:"absolute",top:15,right:15}}>
                 <motion.div whileHover={{scale:1.1}} whileTap={{scale:0.9}}>
@@ -197,13 +200,13 @@ export const ProductList = () => {
                 </motion.div>
             </IconButton>
 
-            <Stack rowGap={2} mt={4}>
+            {/* <Stack rowGap={2} mt={4}>
                 <Typography sx={{cursor:"pointer"}} variant='body2'>Totes</Typography>
                 <Typography sx={{cursor:"pointer"}} variant='body2'>Backpacks</Typography>
                 <Typography sx={{cursor:"pointer"}} variant='body2'>Travel Bags</Typography>
                 <Typography sx={{cursor:"pointer"}} variant='body2'>Hip Bags</Typography>
                 <Typography sx={{cursor:"pointer"}} variant='body2'>Laptop Sleeves</Typography>
-            </Stack>
+            </Stack> */}
 
             {/* brand filters */}
             <Stack mt={2}>
@@ -267,12 +270,11 @@ export const ProductList = () => {
 
         
         <Stack mb={'3rem'}>
-            
 
                 {/* banners section */}
                 {
                     !is600 && 
-                
+
                 <Stack sx={{width:"100%",height:is800?"300px":is1200?"400px":"500px"}}>
                     <ProductBanner images={bannerImages}/>
                 </Stack>
@@ -282,8 +284,17 @@ export const ProductList = () => {
                 <Stack rowGap={5} mt={is600?2:0}>
 
                     {/* sort options */}
-                    <Stack flexDirection={'row'} mr={'2rem'} justifyContent={'flex-end'} alignItems={'center'} columnGap={5}>
-                                        
+                    <Stack flexDirection={'row'} mr={'2rem'} ml={'2rem'} justifyContent={'space-between'} alignItems={'center'} columnGap={5}>
+                        <Stack direction="row" alignItems="center" spacing={1}>
+                            <Typography onClick={handleFilterClose} sx={{ cursor: 'pointer' }}>
+                                Filters
+                            </Typography>
+                            {isProductList && (
+                                <IconButton onClick={handleFilterClose} width={"42px"}>
+                                <TuneIcon sx={{ color: isProductFilterOpen ? "black" : "" }} />
+                                </IconButton>
+                            )}
+                        </Stack>
                         <Stack alignSelf={'flex-end'} width={'12rem'}>
                             <FormControl fullWidth>
                                     <InputLabel id="sort-dropdown">Sort</InputLabel>

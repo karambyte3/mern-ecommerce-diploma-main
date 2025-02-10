@@ -4,11 +4,10 @@ import React from 'react'
 import { QRCodePng, appStorePng, googlePlayPng ,facebookPng,instagramPng,twitterPng,linkedinPng} from '../../assets'
 import SendIcon from '@mui/icons-material/Send';
 import { MotionConfig, motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-
-
+import { Link, useNavigate } from 'react-router-dom';
 
 export const Footer = () => {
+    const navigate=useNavigate();
 
     const theme=useTheme()
     const is700=useMediaQuery(theme.breakpoints.down(700))
@@ -16,6 +15,10 @@ export const Footer = () => {
     const labelStyles={
         fontWeight:300,
         cursor:'pointer'
+    }
+
+    const linksStyle = {
+        color: '#fff'
     }
 
   return (
@@ -33,26 +36,26 @@ export const Footer = () => {
 
                 <Stack rowGap={'1rem'} padding={'1rem'}>
                     <Typography variant='h6'>Support</Typography>
-                    <Typography sx={labelStyles}>11th Main Street, Dhaka,  DH 1515, California.</Typography>
-                    <Typography sx={labelStyles}>exclusive@gmail.com</Typography>
-                    <Typography sx={labelStyles}>+88015-88888-9999</Typography>
+                    <Typography sx={labelStyles}>123 Bike Lane, Cycle City, BIK 4567</Typography>
+                    <Typography sx={labelStyles}>support@bikeable.com</Typography>
+                    <Typography sx={labelStyles}>+1 (234) 567-8901</Typography>
+                    <Typography sx={labelStyles}>Monday - Friday, 9 AM - 6 PM</Typography>
                 </Stack>
 
                 <Stack rowGap={'1rem'} padding={'1rem'}>
                     <Typography  variant='h6'>Account</Typography>
-                    <Typography sx={labelStyles}>My Account</Typography>
-                    <Typography sx={labelStyles}>Login / Register</Typography>
-                    <Typography sx={labelStyles}>Cart</Typography>
-                    <Typography sx={labelStyles}>Wishlist</Typography>
-                    <Typography sx={labelStyles}>Shop</Typography>
+                    <Link to="/profile" style={linksStyle}>Profile</Link>
+                    <Link to="/wishlist" style={linksStyle}>Wishlist</Link>
+                    <Link to="/" style={linksStyle}>Shop</Link>
+                    <Link to="/cart" style={linksStyle}>Cart</Link>
                 </Stack>
 
                 <Stack rowGap={'1rem'} padding={'1rem'}>
                     <Typography  variant='h6'>Quick Links</Typography>
-                    <Typography sx={labelStyles}>Privacy Policy</Typography>
-                    <Typography sx={labelStyles}>Terms Of Use</Typography>
-                    <Typography sx={labelStyles}>FAQ</Typography>
-                    <Typography sx={labelStyles}>Contact</Typography>
+                    <Link to="/privacy-policy" style={linksStyle}>Privacy Policy</Link>
+                    <Link to="/terms-of-use" style={linksStyle}>Terms Of Use</Link>
+                    <Link to="/faq" style={linksStyle}>Frequently Asked Questions</Link>
+                    <Link to="/contact-us" style={linksStyle}>Contact Us</Link>
                 </Stack>
 
                 <Stack rowGap={'1rem'} padding={'1rem'}>

@@ -11,6 +11,10 @@ import { useFetchLoggedInUserDetails } from "./hooks/useAuth/useFetchLoggedInUse
 import { AddProductPage, AdminOrdersPage, CartPage, CheckoutPage, ForgotPasswordPage, HomePage, LoginPage, OrderSuccessPage, OtpVerificationPage, ProductDetailsPage, ProductUpdatePage, ResetPasswordPage, SignupPage, UserOrdersPage, UserProfilePage, WishlistPage } from './pages';
 import { AdminDashboardPage } from './pages/AdminDashboardPage';
 import { NotFoundPage } from './pages/NotFoundPage';
+import PrivacyPolicy from './pages/staticPages/PrivacyPolicy';
+import TermsOfUse from './pages/staticPages/TermsOfUse';
+import Faq from './pages/staticPages/Faq';
+import ContactUs from './pages/staticPages/ContactUs';
 
 
 function App() {
@@ -18,10 +22,8 @@ function App() {
   const isAuthChecked=useSelector(selectIsAuthChecked)
   const loggedInUser=useSelector(selectLoggedInUser)
 
-
   useAuthCheck();
   useFetchLoggedInUserDetails(loggedInUser);
-
 
   const routes = createBrowserRouter(
     createRoutesFromElements(
@@ -31,6 +33,10 @@ function App() {
         <Route path='/verify-otp' element={<OtpVerificationPage/>}/>
         <Route path='/forgot-password' element={<ForgotPasswordPage/>}/>
         <Route path='/reset-password/:userId/:passwordResetToken' element={<ResetPasswordPage/>}/>
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-of-use" element={<TermsOfUse />} />
+        <Route path="/faq" element={<Faq />} />
+        <Route path="/contact-us" element={<ContactUs />} />
         <Route exact path='/logout' element={<Protected><Logout/></Protected>}/>
         <Route exact path='/product-details/:id' element={<Protected><ProductDetailsPage/></Protected>}/>
 
@@ -64,7 +70,6 @@ function App() {
     )
   )
 
-  
   return isAuthChecked ? <RouterProvider router={routes}/> : "";
 }
 

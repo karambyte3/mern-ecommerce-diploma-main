@@ -123,10 +123,12 @@ export const Navbar=({isProductList=false})=> {
                       </Badge>
                   </Stack>
             }
-            {
+
+            {/* Filters */}
+            {/* {
               isProductList && <IconButton onClick={handleToggleFilters}><TuneIcon sx={{color:isProductFilterOpen?"black":""}}/></IconButton>
-            }
-            
+            } */}
+
             </Stack>
           </Stack>
         </Toolbar>
