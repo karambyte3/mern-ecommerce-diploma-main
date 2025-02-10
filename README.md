@@ -2,9 +2,9 @@
 
 **MERN Ecommerce** is a full-stack application designed to transform your online shopping experience. Built with the MERN stack (MongoDB, Express.js, React, Node.js), it leverages Redux Toolkit for efficient state management and Material UI for a sleek, user-friendly interface. This project offers a robust platform for both users and admins, packed with essential features for a seamless experience.
 
-![ecommerce-homepage](https://github.com/RishiBakshii/mern-ecommerce/blob/main/frontend/src/assets/images/front.png?raw=true)
-![ecommerce-banner](https://github.com/RishiBakshii/mern-ecommerce/blob/main/frontend/src/assets/images/banner1.jpg?raw=true)
-![ecommerce-banner](https://github.com/RishiBakshii/mern-ecommerce/blob/main/frontend/src/assets/images/banner3.jpg?raw=true)
+![ecommerce-homepage](https://github.com/karambyte3/mern-ecommerce-diploma-main/blob/main/frontend/src/assets/images/front.png?raw=true)
+![ecommerce-banner](https://github.com/karambyte3/mern-ecommerce-diploma-main/blob/main/frontend/src/assets/images/banner1.jpg?raw=true)
+![ecommerce-banner](https://github.com/karambyte3/mern-ecommerce-diploma-main/blob/main/frontend/src/assets/images/banner3.jpg?raw=true)
 
 
 # **Features**
